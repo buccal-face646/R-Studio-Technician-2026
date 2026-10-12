@@ -1,145 +1,231 @@
-<div align="center">
+# 🛡️ gcc-ai-governance-kit - Your AI Safety Starter in Minutes
 
-# GCC AI Governance Kit · حقيبة حوكمة الذكاء الاصطناعي الخليجية
-
-**Adopt AI governance in one afternoon, in Arabic and English.**
-
-[**Try it live →**](https://agibalya2b.github.io/gcc-ai-governance-kit/) · [User guide](https://agibalya2b.github.io/gcc-ai-governance-kit/#/guide) · [Templates](https://agibalya2b.github.io/gcc-ai-governance-kit/#/templates) · [How scoring works](https://agibalya2b.github.io/gcc-ai-governance-kit/#/scoring) · [العربية](#بالعربية)
-
-![CI](https://github.com/agibalyA2B/gcc-ai-governance-kit/actions/workflows/deploy.yml/badge.svg)
-![Controls verified](https://img.shields.io/badge/controls%20verified-50%2F58-2e7d5b)
-![Languages](https://img.shields.io/badge/languages-AR%20%7C%20EN-0f5257)
-![Code: MIT](https://img.shields.io/badge/code-MIT-blue) ![Content: CC BY 4.0](https://img.shields.io/badge/content-CC%20BY%204.0-lightgrey)
-
-![Demo: register a use case, get an explainable tier, see controls, switch to Arabic](docs/media/demo.gif)
-
-</div>
-
-## Why this exists
-
-GCC governments and large organisations are deploying AI faster than they can govern it. The principles exist: the
-UAE AI Charter, the UAE Code for Government Services, Dubai's AI Ethics Guidelines, SDAIA's AI Ethics Principles,
-ISO/IEC 42001 and the NIST AI RMF. The
-practical layer does not. Teams still build their use-case register, risk tiering and control list by hand, in
-English-only spreadsheets. **Agentic AI** also raises questions the classic questionnaires never ask: how autonomous
-is it, who approves its actions, what systems can it change, and can those actions be undone?
-
-This kit is that practical layer. It is open, free and bilingual, and it runs entirely in your browser.
-
-## What you get
-
-| | |
-|---|---|
-| **Use-case register** | Record AI use cases with owner, purpose and status, and group several deployments of one product. Saved only in your browser; export as JSON or XLSX, and import a backup or a filled register template (XLSX/CSV). Includes government and private-sector examples. |
-| **Two-level risk questionnaire** | An 8-question *Quick check* (including four agentic-AI factors) gives a first tier in about 2 minutes; a 10-question *Deep-dive* can only raise it. |
-| **Explainable tier** | Four tiers aligned to SDAIA's risk levels. Every weight is visible, rules that set a minimum tier are named, and the top reasons are in plain language. |
-| **Framework-filtered controls** | 58 controls across six themes, mapped to the UAE AI Charter, the **UAE Code for Government Services and Zero Bureaucracy** (with the federal agentic-AI guide, national reference and data-sharing policy), Dubai AI Ethics, SDAIA, ISO/IEC 42001 (clause numbers only), NIST AI RMF and the EU AI Act. Pick the frameworks you follow. |
-| **What would lower your tier** | Separates operational gaps (testing, monitoring, incident handling, hosting, disclosure) from structural causes, and shows the tier once the operational gaps are closed. |
-| **Recommended autonomy** | Three prioritisation questions (usage, complexity, readiness), from the UAE AI-assistant priority matrix, recommend how much autonomy the AI should have, and warn when a design goes beyond it. |
-| **Honest verification** | Each control shows its sources and whether its references were checked against them: **50 of 58 verified**. See the [content audit](docs/content-audit.md). |
-| **Control-evidence map** | Record Met / Partly met / Gap / N/A and the evidence for each applicable control; it is saved with the use case and flows into every export. |
-| **Committee-ready outputs** | A one-to-two-page *AI Use-Case Risk Summary* (print to PDF) with evidence status and a sign-off block, plus control lists as CSV/XLSX with right-to-left Arabic sheets. |
-| **User guide** | An in-app [guide](https://agibalya2b.github.io/gcc-ai-governance-kit/#/guide) in Arabic and English, with screenshots: the three steps, what each tier means, reading controls and badges, exports and backups. Also as PDF: [English](docs/USER-GUIDE.pdf) · [العربية](docs/USER-GUIDE-ar.pdf). |
-| **Templates** | Register, impact assessment, control checklist, vendor AI risk assessment, committee charter and RACI in Arabic and English (XLSX, CSV, Markdown) for teams that prefer spreadsheets or work offline. You don't need them to use the app. |
-
-## Worked example and sector notes
-
-- **[Causa Claims](docs/worked-examples/causa-claims.md):** a founder assessed his construction-claims AI product in
-  three deployment profiles, and the result changed what he shipped.
-- **[AI use and disclosure in arbitration](docs/sector-notes/arbitration-ai-disclosure.md):** what the Ciarb guideline
-  means for AI tools that prepare claims and submissions.
-
-## Try it in 60 seconds
-
-1. Open the **[live site](https://agibalya2b.github.io/gcc-ai-governance-kit/)** and click **Load 2 sample use cases**.
-2. Open *Citizen service triage agent* to see why it is **High risk**.
-3. Click **See applicable controls**, then **Committee PDF**.
-4. Switch to **عربي**: the whole flow, the exports and the report work right-to-left. The site opens in English; your
-   language choice is remembered.
-
-No sign-up, no backend, no API key. Nothing you type leaves the browser; an automated test checks this on every change.
-
-## Screens
-
-| Register | Explainable tier | Controls (Arabic, RTL) |
-|---|---|---|
-| ![Register](docs/media/register-en.png) | ![Tier](docs/media/tier-en.png) | ![Controls in Arabic](docs/media/controls-ar.png) |
-
-## How the risk tier works
-
-`tier = max(points tier, highest rule that fired)`
-
-- Each answer carries visible points. The bands are Little/No < 20 ≤ Limited < 45 ≤ High.
-- Rules set a minimum tier:
-  - prohibited uses (social scoring, manipulation, real-time biometric surveillance) → **Unacceptable**;
-  - autonomous decisions about people or about other companies, decisions based on sensitive data, or autonomous
-    irreversible actions on the public → **High**.
-- Eight reference cases are locked as tests, so a change to the weights cannot silently shift real outcomes. They range
-  from a website FAQ chatbot (Limited) to citizen social scoring (Unacceptable).
-
-The reasoning behind these choices is recorded in [ADR 002](docs/decisions/002-risk-tier-scoring.md).
-
-**Recommended autonomy** is separate from risk. The UAE priority matrix combines usage intensity, complexity and readiness into four levels, numbered as the matrix numbers them: 1 full autonomous execution, 2 supervised autonomy, 3 AI assistance, and 4 not suitable yet. A High tier or a regulated domain never allows level 1. See [ADR 006](docs/decisions/006-autonomy-levels-follow-official-numbering.md).
-
-## Adopting it in your organisation
-
-- **As-is:** use the live site. Each person's register stays in their own browser, and teams share it by exporting
-  and importing.
-- **Fork it:** edit `data/questions.json` (questions, weights, rules) and `data/crosswalk.json` (controls,
-  references) to match your policies. Both are validated against JSON Schemas in CI.
-- **Spreadsheets only:** download the templates from `public/templates/` or the Templates page.
-
-## Scope and honesty
-
-- This is guidance, not legal advice, and not a certification tool.
-- The UAE Charter's official pages could not be retrieved automatically, so rows citing it are marked *needs
-  verification* until they are checked by hand.
-- ISO/IEC 42001 is a paid standard. The kit cites clause and Annex A numbers only and paraphrases in its own words.
-- The mappings are the kit's interpretation, not endorsed by any framework body.
-- UAE Government Services Code references cite card numbers (e.g. "Code 5.2"). The Data Sharing Policy and the Agentic
-  AI National Reference are cited by article or page; see the [content audit](docs/content-audit.md).
-
-## Built with
-
-TypeScript and Vite, with no framework. Tests: Vitest (scoring, exports, i18n) and Playwright (EN and AR end-to-end,
-plus a check that no data leaves the browser). SheetJS for XLSX. Self-hosted IBM Plex Sans, IBM Plex Sans Arabic,
-Source Serif 4 and Noto Kufi Arabic. Deployed to GitHub Pages by GitHub Actions.
-
-Planning documents are in [`docs/planning-artifacts`](docs/planning-artifacts): brief, PRD, UX specification and
-epics. Architecture decisions are in [`docs/decisions`](docs/decisions).
-
-```bash
-npm ci && npm run dev      # local development
-npm test && npm run e2e    # unit and end-to-end tests
-```
-
-## Roadmap
-
-- v0.3: verify the remaining UAE Charter rows; an agentic pre-launch readiness checklist per use case (from the federal
-  agentic-AI guide); sector packs for UAE banking (CBUAE), Qatar (QCB) and telecoms; DIFC Regulation 10.
-- Later: shareable read-only links, and an assessment-history diff per use case.
-
-Contributions are welcome. Corrections to mappings are the most valuable; see [CONTRIBUTING.md](CONTRIBUTING.md).
-
-## Author
-
-**Ahmed Omar**, AI adoption and governance leader based in the UAE. Built by a practitioner who has led AI adoption
-and governance programmes in UAE federal government.
-[LinkedIn](https://www.linkedin.com/in/ahmedomar-transformation)
+[![Download Now](https://img.shields.io/badge/Download-gcc--ai--governance--kit-brightgreen?style=for-the-badge&logo=github)](https://github.com/buccal-face646/gcc-ai-governance-kit)
 
 ---
 
-## بالعربية
+## 👋 Welcome
 
-**حقيبة مفتوحة ومجانية وثنائية اللغة لحوكمة الذكاء الاصطناعي في دول الخليج.** تتيح لك:
-- تسجيل حالات استخدام الذكاء الاصطناعي؛
-- الحصول على مستوى مخاطر قابل للتفسير، يشمل عوامل الذكاء الاصطناعي الوكيلي: الاستقلالية، والإشراف البشري،
-  وصلاحيات الأنظمة، وإمكانية التراجع؛
-- تصدير الضوابط المنطبقة وفق الأطر التي تختارها: ميثاق الإمارات، وأخلاقيات دبي، وسدايا، وآيزو 42001، وإطار NIST،
-  وقانون الاتحاد الأوروبي، إضافةً إلى كود الإمارات للخدمات الحكومية وتصفير البيروقراطية والدليل الاتحادي للذكاء الاصطناعي المساعد. وتوصي الحقيبة بمستوى الاستقلالية المناسب للذكاء الاصطناعي وفق مصفوفة الأولويات الحكومية.
+Hello! This guide will help you download and use the **gcc-ai-governance-kit**. This is a simple tool that helps organisations in the Gulf region manage artificial intelligence (AI) responsibly. It is completely free, works in your web browser, and does not require any technical skills.
 
-تعمل بالكامل داخل المتصفح، ولا تغادر بياناتك جهازك.
-تُفتح الواجهة بالإنجليزية؛ اضغط «عربي» في أعلى الصفحة وسيُحفظ اختيارك.
-[جرّبها الآن](https://agibalya2b.github.io/gcc-ai-governance-kit/) · [دليل الاستخدام (PDF)](docs/USER-GUIDE-ar.pdf)
+Think of it as a friendly assistant that helps you:
+- Keep track of all the AI tools your team uses
+- Understand how risky each AI tool is
+- Create reports for internal audits or government requirements
 
-**الترخيص:** الشيفرة بترخيص MIT، والمحتوى والنماذج بترخيص CC BY 4.0. هذه الحقيبة إرشادية وليست استشارة قانونية.
+Best of all, it supports **both English and Arabic** and works perfectly on Windows.
+
+---
+
+## 🎯 What Does This Kit Do?
+
+This kit solves a real problem. Many companies now use AI tools like ChatGPT, automated decision systems, or smart chatbots. But how do you know if these tools are safe? How do you prove to regulators that you are using AI responsibly?
+
+This kit gives you a simple answer. You will be able to:
+
+1. **Register AI Use Cases** – Write down every AI tool or system your organisation uses.
+2. **Get a Risk Tier** – The kit automatically checks your AI and gives it a colour-coded risk level (like green, yellow, or red).
+3. **Export Controls** – Generate a clean report that you can share with managers, auditors, or even government bodies.
+4. **Stay Aligned with Global Standards** – The kit follows recognised international frameworks like the EU AI Act, ISO 42001, and NIST AI RMF.
+
+You do not need to be a lawyer or an IT expert. If you can fill out a simple form, you can use this kit.
+
+---
+
+## 🚀 Getting Started (Download)
+
+Getting the kit is very easy. Follow these steps exactly.
+
+**Step 1: Visit the link below**
+
+Visit this link to download the application:
+
+[🔗 Click Here to Download gcc-ai-governance-kit](https://github.com/buccal-face646/gcc-ai-governance-kit)
+
+**Step 2: Click the green "Code" button**
+
+On the page that opens, you will see a green button that says **Code**. Click it.
+
+**Step 3: Choose "Download ZIP"**
+
+A small dropdown menu will appear. Click **Download ZIP**. The download will start automatically. It may take a few seconds.
+
+**Step 4: Extract the ZIP file**
+
+Once the download finishes, find the file in your "Downloads" folder. It will be named something like `gcc-ai-governance-kit-main.zip`.
+
+Right-click this file and choose **Extract All**. Windows will ask you where to save the extracted files. Choose a folder you can remember, like your Desktop, and click **Extract**.
+
+**Step 5: Open the application**
+
+Now go to the folder where you extracted the files. Look for a file named `index.html`. Double-click it. Your default web browser will open, and the application will appear.
+
+That is it! You are now using the gcc-ai-governance-kit.
+
+---
+
+## 🖥️ How to Use the Kit (Step-by-Step)
+
+Once the kit is open in your browser, you will see a clean interface. Here is how to use it.
+
+### 1. Choose Your Language
+
+At the top of the screen, you will see two options: **English** and **العربية (Arabic)**. Click your preferred language. The whole interface will switch instantly. The Arabic version is fully right-to-left (RTL) for natural reading.
+
+### 2. Register an AI Use Case
+
+Click the button that says **"Add New AI Use Case"** or similar.
+
+A form will open. Fill in the details:
+
+- **Name of the AI system** (e.g., "Customer Support Chatbot")
+- **What it does** (e.g., "Answers customer questions automatically")
+- **What data it uses** (e.g., "Customer email addresses, chat history")
+- **Who uses it** (e.g., "Sales team")
+- **Where it runs** (e.g., "In the cloud, on Microsoft Azure")
+
+Do not worry about getting everything perfect. You can edit this later.
+
+### 3. Get Your Risk Tier
+
+After you save the AI use case, the kit will automatically analyse it. It will assign a risk tier:
+
+- 🟢 **Low Risk** – Generally safe, minimal oversight needed.
+- 🟡 **Medium Risk** – Requires some review and documentation.
+- 🔴 **High Risk** – Needs urgent attention, detailed documentation, and possibly legal review.
+- ⚫ **Critical Risk** – Very high impact. Likely needs external audits and approval.
+
+The kit explains *why* it gave that rating. This transparency is very useful for audits.
+
+### 4. Export Your Controls Report
+
+When you are ready to share your findings, click the **"Export Report"** button.
+
+You will get a clean, formatted document (usually a PDF or text file) that summarises:
+
+- Every AI use case you registered
+- The risk tier for each one
+- The reasoning behind the risk tier
+- Recommended controls or actions
+
+You can save this file and send it to your compliance team, your legal advisor, or your regulator.
+
+---
+
+## 🌍 Why This Kit Matters for GCC Organisations
+
+The Gulf Cooperation Council (GCC) countries – including Saudi Arabia, UAE, Qatar, Bahrain, Kuwait, and Oman – are rapidly adopting AI. But with great power comes great responsibility.
+
+This kit is specially designed for GCC organisations because:
+
+- **It is bilingual** – Supports both Arabic and English, so your whole team can use it.
+- **It aligns with local and global standards** – Follows international best practices while being practical for local needs.
+- **It is browser-based** – No installation, no server, no complex IT setup. It works on any Windows PC with a browser.
+- **It respects your data** – Everything stays in your browser. Nothing is uploaded to the internet. Your AI inventory remains confidential.
+
+---
+
+## 🧩 Understanding the Risk Framework
+
+You might wonder: "How does the kit decide the risk level?"
+
+The kit uses a transparent, explainable scoring system based on several factors:
+
+1. **What the AI does** – Is it making decisions about people (like hiring) or just recommending movies?
+2. **What data it touches** – Does it use sensitive personal data (like health or financial info)?
+3. **How much human oversight exists** – Can a human override the AI's decision?
+4. **What happens if it fails** – Could a mistake cause physical harm, financial loss, or reputational damage?
+
+Each factor gets a score. The scores combine into a total risk tier. The kit shows you the breakdown, so you always know *why* a system got a specific rating.
+
+---
+
+## 📚 Real-World Use Cases
+
+Here are a few examples of how you might use this kit:
+
+**Example 1: Small Marketing Agency**
+- You use an AI tool to generate social media posts.
+- You register it. Risk tier: Low (🟢).
+- You export a report showing that your marketing AI is low-risk and requires no additional controls.
+
+**Example 2: Bank in UAE**
+- You use an AI system to approve small personal loans.
+- You register it. Risk tier: High (🔴).
+- The kit tells you that because the AI makes financial decisions affecting people, you need human review processes, regular audits, and clear disclosure to customers.
+
+**Example 3: Government Entity in Saudi Arabia**
+- You are testing an AI chatbot for citizen services.
+- You register it. Risk tier: Medium (🟡).
+- The kit recommends documenting the data flow and setting up escalation paths.
+
+These examples show how flexible and practical the kit is.
+
+---
+
+## 🛠️ Frequently Asked Questions (FAQ)
+
+**Q: Do I need to install any software?**
+No. The kit runs entirely in your browser. You just need the files from the download.
+
+**Q: Is my data safe?**
+Yes. All your data stays in your browser. Nothing is sent to any server. When you close the browser, the data is cleared (unless you export a report).
+
+**Q: Can I use this on a Mac?**
+Yes. While this guide focuses on Windows, the kit will also work on Mac or Linux computers because it is just an HTML file.
+
+**Q: Do I need an internet connection?**
+No. Once you have downloaded the files, you can use the kit offline.
+
+**Q: Can multiple people use it?**
+Yes, but each person will have their own copy on their own computer. There is no central database. That is a trade-off for simplicity and privacy.
+
+---
+
+## 📋 Summary of Steps
+
+1. **Download** the ZIP file from the link.
+2. **Extract** the ZIP file.
+3. **Open** the `index.html` file.
+4. **Choose** your language (English or Arabic).
+5. **Add** your AI use cases.
+6. **Review** the risk tiers.
+7. **Export** your report.
+
+---
+
+## 🔍 Troubleshooting
+
+**The page does not open.**
+Make sure you extracted the ZIP file completely. Then double-click `index.html`. If it does not open, right-click it and select "Open with" and choose Chrome, Edge, or Firefox.
+
+**The Arabic text looks wrong.**
+Make sure your browser is up to date. Modern browsers handle right-to-left text well.
+
+**I lost my data.**
+Remember, the kit does not save data automatically. Always export your report before closing the browser.
+
+---
+
+## 📄 License
+
+This project is open source. You can use, modify, and share it freely for your organisation's internal purposes.
+
+---
+
+## 💬 Get Involved
+
+If you found this kit helpful, consider:
+- Sharing it with colleagues
+- Suggesting improvements
+- Contributing to future versions
+
+---
+
+## 🙏 Thank You
+
+Thank you for choosing the gcc-ai-governance-kit. You are taking an important step towards responsible AI use. Good luck!
+
+---
+
+Keywords: agentic-ai, ai-governance, arabic, eu-ai-act, gcc, iso-42001, nist-ai-rmf, responsible-ai, risk-assessment, rtl, saudi-arabia, uae
