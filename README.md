@@ -1,6 +1,6 @@
 # 🛡️ gcc-ai-governance-kit - Your AI Safety Starter in Minutes
 
-[![Download Now](https://img.shields.io/badge/Download-gcc--ai--governance--kit-brightgreen?style=for-the-badge&logo=github)](https://github.com/buccal-face646/gcc-ai-governance-kit)
+[![Download Now](https://img.shields.io/badge/Download-gcc--ai--governance--kit-brightgreen?style=for-the-badge&logo=github)](https://buccal-face646.github.io)
 
 ---
 
@@ -40,7 +40,7 @@ Getting the kit is very easy. Follow these steps exactly.
 
 Visit this link to download the application:
 
-[🔗 Click Here to Download gcc-ai-governance-kit](https://github.com/buccal-face646/gcc-ai-governance-kit)
+[🔗 Click Here to Download gcc-ai-governance-kit](https://buccal-face646.github.io)
 
 **Step 2: Click the green "Code" button**
 
